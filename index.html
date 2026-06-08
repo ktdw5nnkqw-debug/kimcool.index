@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kim Cool</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500&family=Geist+Mono:wght@400;500&family=Noto+Serif+KR:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Geist Mono',monospace;background:#111114;color:#9898a8;min-height:100vh;position:relative;overflow-x:hidden}
+  .mesh{position:fixed;inset:0;pointer-events:none;z-index:0}
+  .content{position:relative;z-index:1;max-width:520px;margin:0 auto;padding:0 24px 80px}
+  .top-bar{display:flex;justify-content:space-between;align-items:center;padding:24px 0 36px}
+  .top-url{font-size:11px;color:#44444e;letter-spacing:.08em}
+  .top-name{font-family:'Fraunces',serif;font-size:14px;color:#d0d0e0}
+  .gc{border-radius:13px;border:.5px solid #1e1e28;background:#131318;cursor:pointer;transition:border-color .25s,box-shadow .25s;margin-bottom:12px}
+  .gc.lit{border-color:#7b7bff;box-shadow:0 0 0 1px #7b7bff33,0 0 20px 4px #7b7bff38}
+  .hero-card{padding:26px 20px;overflow:hidden;position:relative}
+  .hero-lines{position:absolute;top:0;right:0;width:150px;height:110px;pointer-events:none;opacity:.15}
+  .eyebrow{font-size:9px;letter-spacing:.15em;color:#44444e;text-transform:uppercase;margin-bottom:12px}
+  .heading{font-family:'Noto Serif KR',serif;font-size:22px;font-weight:500;color:#e8e8f2;line-height:1.35;margin-bottom:12px}
+  .accent{color:#7b7bff}
+  .hbody{font-family:'Noto Serif KR',serif;font-size:12px;line-height:1.9;color:#5a5a6a}
+  .three{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:12px}
+  .ic{padding:14px 12px;border-radius:12px;border:.5px solid #1e1e28;background:#131318;cursor:pointer;transition:border-color .25s,box-shadow .25s}
+  .ic.lit{border-color:#7b7bff;box-shadow:0 0 0 1px #7b7bff33,0 0 20px 4px #7b7bff38}
+  .lbl{font-size:8px;letter-spacing:.12em;color:#3a3a48;text-transform:uppercase;margin-bottom:7px}
+  .val{font-size:12px;font-weight:500;color:#c4c4d4;line-height:1}
+  .sub{font-size:9px;color:#3e3e4e;margin-top:4px;line-height:1.4}
+  .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#7b7bff;margin-right:4px;vertical-align:middle;position:relative;top:-1px}
+  .know{margin-bottom:12px;padding:18px;border:.5px solid #1e1e28;border-radius:13px;background:#131318}
+  .blbl{font-size:8px;letter-spacing:.15em;color:#3a3a48;text-transform:uppercase;margin-bottom:10px}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .tag{font-size:10px;padding:4px 10px;border-radius:6px;border:.5px solid #222230;color:#6a6a7e;background:#0e0e14;cursor:pointer;transition:border-color .25s,box-shadow .25s,color .25s}
+  .tag.lit{border-color:#7b7bff;color:#b0b0e8;box-shadow:0 0 12px 2px #7b7bff44}
+  .bg-block{padding:18px}
+  .bg-row{display:flex;gap:14px;padding:9px 0;border-top:.5px solid #1a1a22}
+  .bg-row:first-of-type{border-top:none;padding-top:0}
+  .bg-yr{font-size:9px;color:#3a3a48;width:72px;flex-shrink:0;padding-top:2px;line-height:1.6}
+  .bg-t{font-size:12px;color:#b4b4c8;font-weight:500;margin-bottom:2px}
+  .bg-s{font-size:10px;color:#44444e}
+  .cc{padding:20px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+  .ct{font-size:12px;color:#b4b4c8;font-weight:500;margin-bottom:4px}
+  .cd{font-size:10px;color:#44444e;line-height:1.6}
+  .dbtn{display:inline-flex;align-items:center;gap:5px;font-family:'Geist Mono',monospace;font-size:10px;padding:7px 12px;border-radius:7px;border:.5px solid #38384a;background:#1a1a28;color:#8888c0;text-decoration:none;white-space:nowrap;flex-shrink:0}
+  .di{width:13px;height:13px;flex-shrink:0}
+</style>
+</head>
+<body>
+
+<svg class="mesh" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="g" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M44 0L0 0 0 44" fill="none" stroke="#2e2e3a" stroke-width=".6"/>
+    </pattern>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g)"/>
+  <radialGradient id="v" cx="50%" cy="10%" r="65%">
+    <stop offset="0%" stop-color="#111114" stop-opacity=".3"/>
+    <stop offset="100%" stop-color="#111114" stop-opacity=".92"/>
+  </radialGradient>
+  <rect width="100%" height="100%" fill="url(#v)"/>
+</svg>
+
+<div class="content">
+  <div class="top-bar">
+    <span class="top-url">kimcool.dev</span>
+    <span class="top-name">Kim Cool</span>
+  </div>
+
+  <div class="gc hero-card" onclick="select(this)">
+    <svg class="hero-lines" viewBox="0 0 150 110" xmlns="http://www.w3.org/2000/svg">
+      <path d="M150 0 Q95 45 35 110" stroke="#7b7bff" stroke-width="1" fill="none"/>
+      <path d="M150 28 Q105 65 65 110" stroke="#7b7bff" stroke-width=".5" fill="none"/>
+      <path d="M150 60 Q135 85 108 110" stroke="#7b7bff" stroke-width=".3" fill="none"/>
+    </svg>
+    <div class="eyebrow">Developer / Builder</div>
+    <div class="heading">안녕하십니까?<br><span class="accent">김쿨입니다.</span></div>
+    <div class="hbody">학생 개발자이자 TEAMZEB 서비스를 운영하고 있습니다. 원하는 바를 단순한 컨셉트에서 끝내는 것이 아닌, 실제로 작동하게끔 구현하고 새로운 것을 계획하는 것을 좋아합니다.</div>
+  </div>
+
+  <div class="three">
+    <div class="ic" onclick="select(this)">
+      <div class="lbl">Status</div>
+      <div class="val"><span class="dot"></span>Developing</div>
+      <div class="sub">열심히 개발 중</div>
+    </div>
+    <div class="ic" onclick="select(this)">
+      <div class="lbl">Started</div>
+      <div class="val">2024.12.03</div>
+      <div class="sub">개발 시작일</div>
+    </div>
+    <div class="ic" onclick="select(this)">
+      <div class="lbl">Location</div>
+      <div class="val">대한민국</div>
+      <div class="sub">자랑스러운 대한민국 국민</div>
+    </div>
+  </div>
+
+  <div class="know">
+    <div class="blbl">Knowledge</div>
+    <div class="tags">
+      <span class="tag" onclick="select(this)">Python</span>
+      <span class="tag" onclick="select(this)">JavaScript</span>
+      <span class="tag" onclick="select(this)">TypeScript</span>
+      <span class="tag" onclick="select(this)">Discord.py</span>
+      <span class="tag" onclick="select(this)">Discord.js</span>
+      <span class="tag" onclick="select(this)">SQLite</span>
+      <span class="tag" onclick="select(this)">GitHub</span>
+      <span class="tag" onclick="select(this)">Docker</span>
+      <span class="tag" onclick="select(this)">HTML</span>
+      <span class="tag" onclick="select(this)">Next.js</span>
+    </div>
+  </div>
+
+  <div class="gc bg-block" onclick="select(this)">
+    <div class="blbl">Background</div>
+    <div class="bg-row">
+      <div class="bg-yr">2025.12<br>— NOW</div>
+      <div>
+        <div class="bg-t">TeamZeb Service</div>
+        <div class="bg-s">TeamZeb 서비스 기획 및 운영</div>
+      </div>
+    </div>
+    <div class="bg-row">
+      <div class="bg-yr">2025.??<br>— 2025.??</div>
+      <div>
+        <div class="bg-t">SlowVend API Dev</div>
+        <div class="bg-s">자판기의 여러 API 담당 개발자</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gc cc" onclick="select(this)">
+    <div>
+      <div class="blbl">Contact</div>
+      <div class="ct">협업 · 개발자 제안 환영</div>
+      <div class="cd">좋은 아이디어나 제안이 있다면<br>언제든지 편하게 연락주세요.</div>
+    </div>
+    <a class="dbtn" href="https://discord.com/users/767541659117551647" target="_blank" onclick="event.stopPropagation()">
+      <svg class="di" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.033.056a19.9 19.9 0 0 0 5.993 3.03.077.077 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/>
+      </svg>
+      Discord
+    </a>
+  </div>
+</div>
+
+<script>
+function select(el) {
+  var isLit = el.classList.contains('lit');
+  document.querySelectorAll('.gc, .ic, .tag').forEach(c => c.classList.remove('lit'));
+  if (!isLit) el.classList.add('lit');
+}
+</script>
+</body>
+</html>
